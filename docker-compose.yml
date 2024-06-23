@@ -4,14 +4,13 @@ services:
   postgres:
     image: postgres
     environment:
-      - POSTGRES_PORT=${DATABASE_PORT}
-      - POSTGRES_USER=${DATABASE_USER}
-      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-      - POSTGRES_DB=${DATABASE_NAME}
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: conduit
     ports:
       - 5432:5432
     expose:
-      - postgres
+      - 5432
     restart: unless-stopped
 
 networks:
