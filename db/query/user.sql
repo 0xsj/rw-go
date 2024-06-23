@@ -2,7 +2,7 @@
 INSERT INTO users (
     username,
     email,
-    hashed_password
+    password
 ) VALUES (
     $1,
     $2,
@@ -24,7 +24,7 @@ SELECT * FROM users WHERE username = $1;
 UPDATE users
 SET username = coalesce(sqlc.narg('username'), username),
     email = coalesce(sqlc.narg('email'), email),
-    hashed_password = coalesce(sqlc.narg('hashed_password'), hashed_password),
+    password = coalesce(sqlc.narg('password'), password),
     updated_at = now()
 WHERE id = sqlc.arg('id')
 RETURNING *;

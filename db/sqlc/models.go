@@ -5,16 +5,16 @@
 package db
 
 import (
-	"time"
+	"database/sql"
 
 	"github.com/google/uuid"
 )
 
 type User struct {
-	ID             uuid.UUID  `json:"id"`
-	Username       string     `json:"username"`
-	Email          string     `json:"email"`
-	HashedPassword string     `json:"hashed_password"`
-	CreatedAt      *time.Time `json:"created_at"`
-	UpdatedAt      *time.Time `json:"updated_at"`
+	ID        uuid.UUID    `json:"id"`
+	Username  string       `json:"username"`
+	Email     string       `json:"email"`
+	Password  string       `json:"password"`
+	CreatedAt sql.NullTime `json:"created_at"`
+	UpdatedAt sql.NullTime `json:"updated_at"`
 }
